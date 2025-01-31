@@ -25,7 +25,7 @@ To get started follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/ashcrysis/TabletopGameToolkit.git
+   git clone https://github.com/ashcrysis/agatas-tabletop-game-toolkit.git
    ```
 
 2. **Open it in Unity**:
