@@ -28,9 +28,9 @@ MonoBehaviour:
   - Name: Charisma
     Value: 0
   TrainedSkills:
-  - Acrobacia
-  - "Prestidigita\xE7\xE3o"
-  - Mecanismos
+  - Acrobatics
+  - Sleight of Hand
+  - Mecanism
   TrainedAttributes:
-  - Destreza
-  - "Intelig\xEAncia"
+  - Dexterity
+  - Intelligence

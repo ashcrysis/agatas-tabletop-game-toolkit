@@ -6,16 +6,17 @@ public class DiceRoller : MonoBehaviour
 {
     public PlayerCharacter Player;
     private GameObject collidingObject = null;
+
     void Update()
     {
         if (collidingObject != null && Input.GetKeyDown(KeyCode.E))
         {
-            collidingObject.GetComponent<SkillTest>().PerformSkillTest();
+            collidingObject.GetComponent<SkillTest>()?.PerformSkillTest();
         }
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-          
         if (other.GetComponent<SkillTest>())
         {
             collidingObject = other.gameObject;
@@ -34,110 +35,60 @@ public class DiceRoller : MonoBehaviour
     {
         Skill skill = Player.Skills.Find(s => s.SkillName == skillName);
         if (skill == null)
-        {
-            Debug.LogError($"Perícia {skillName} não encontrada!");
-            return (0, 0);
-        }
+            return LogError<(int, int)>($"Skill {skillName} not found!");
 
-        Attribute baseAttribute = Player.Attributes.Find(a => a.Name == skill.SkillAttribute.Name);
-        if (baseAttribute == null)
-        {
-            Debug.LogError($"Atributo base {skill.SkillAttribute.Name} não encontrado!");
-            return (0, 0);
-        }
-
-        int attributeModifier = baseAttribute.GetModifier();
-        int proficiencyBonusValue = Player.CalculateProficiencyBonus(skill);
-        
-        int diceRoll1 = Random.Range(1, 21);
-        int diceRoll2 = Random.Range(1, 21);
-        
-        int finalRoll = hasAdvantage ? Mathf.Max(diceRoll1, diceRoll2) : hasDisadvantage ? Mathf.Min(diceRoll1, diceRoll2) : diceRoll1;
-        int total = finalRoll + attributeModifier + proficiencyBonusValue;
-
-        Debug.Log($"Teste de {skillName}: Rolagem: {finalRoll}, Modificador ({skill.SkillAttribute.Name}): {attributeModifier}, Bônus de Perícia: {proficiencyBonusValue}, Total: {total}");
-
-        return (finalRoll, total);
+        return RollCheck(skill.SkillAttribute.Name, Player.CalculateProficiencyBonus(skill), hasAdvantage, hasDisadvantage);
     }
 
     public int RollAttributeCheck(string attributeName, bool hasAdvantage, bool hasDisadvantage)
     {
-        Attribute baseAttribute = Player.Attributes.Find(a => a.Name == attributeName);
-        if (baseAttribute == null)
-        {
-            Debug.LogError($"Atributo {attributeName} não encontrado!");
-            return 0;
-        }
+        return RollCheck(attributeName, Player.CalculateProficiencyBonusForAttribute(attributeName), hasAdvantage, hasDisadvantage).total;
+    }
 
-        int attributeModifier = (baseAttribute.Value - 10) / 2;
+    private (int finalRoll, int total) RollCheck(string attributeName, int proficiencyBonus, bool hasAdvantage, bool hasDisadvantage)
+    {
+        Attribute attribute = Player.Attributes.Find(a => a.Name == attributeName);
+        if (attribute == null)
+            return LogError<(int, int)>($"Attribute {attributeName} not found!");
 
-        int proficiencyBonusValue = Player.CalculateProficiencyBonusForAttribute(attributeName);
+        int attributeModifier = (attribute.Value - 10) / 2;
+        int finalRoll = GetRollWithAdvantage(hasAdvantage, hasDisadvantage);
+        int total = finalRoll + attributeModifier + proficiencyBonus;
 
-        int diceRoll1 = Random.Range(1, 21);
-        int diceRoll2 = Random.Range(1, 21); 
+        Debug.Log($"Check for {attributeName}: Roll: {finalRoll}, Modifier: {attributeModifier}, Bonus: {proficiencyBonus}, Total: {total}");
+        return (finalRoll, total);
+    }
 
-        int finalRoll;
-
-        if (hasAdvantage)
-        {
-            finalRoll = Mathf.Max(diceRoll1, diceRoll2);
-        }
-        else if (hasDisadvantage)
-        {
-            finalRoll = Mathf.Min(diceRoll1, diceRoll2);
-        }
-        else
-        {
-            finalRoll = diceRoll1; 
-        }
-
-        int total = finalRoll + attributeModifier + proficiencyBonusValue;
-
-        Debug.Log($"Teste de {attributeName}: Rolagem: {finalRoll}, Modificador ({attributeName}): {attributeModifier}, Bônus de Proficiência: {proficiencyBonusValue}, Total: {total}");
-        
-        return total;
+    private int GetRollWithAdvantage(bool hasAdvantage, bool hasDisadvantage)
+    {
+        int roll1 = Random.Range(1, 21);
+        int roll2 = Random.Range(1, 21);
+        return hasAdvantage ? Mathf.Max(roll1, roll2) : hasDisadvantage ? Mathf.Min(roll1, roll2) : roll1;
     }
 
     public (int total, List<int> rollResults) RollDice(string diceInput)
     {
-        int total = 0;
-        string[] parts = diceInput.Split('+'); 
-        List<int> rollResults = new List<int>(); 
+        List<int> rollResults = diceInput.Split('+')
+            .SelectMany(ParseDiceRoll)
+            .ToList();
 
-        foreach (var part in parts)
-        {
-            string trimmedPart = part.Trim();
-
-            string[] diceAndSides = trimmedPart.Split('d');
-            if (diceAndSides.Length == 2)
-            {
-                int numRolls = int.Parse(diceAndSides[0]); 
-                int numSides = int.Parse(diceAndSides[1]); 
-
-                rollResults.AddRange(RollMultipleDice(numRolls, numSides));
-            }
-            else
-            {
-                Debug.LogError("Invalid dice format: " + trimmedPart);
-            }
-        }
-
-        total = rollResults.Sum();
-        
-        return (total, rollResults);
+        return (rollResults.Sum(), rollResults);
     }
 
-    private List<int> RollMultipleDice(int numRolls, int numSides)
+    private IEnumerable<int> ParseDiceRoll(string diceExpression)
     {
-        List<int> rolls = new List<int>();
-
-        for (int i = 0; i < numRolls; i++)
+        string[] parts = diceExpression.Trim().Split('d');
+        if (parts.Length == 2 && int.TryParse(parts[0], out int numRolls) && int.TryParse(parts[1], out int numSides))
         {
-            rolls.Add(UnityEngine.Random.Range(1, numSides + 1));
+            return Enumerable.Range(0, numRolls).Select(_ => Random.Range(1, numSides + 1));
         }
-
-        return rolls;
+        Debug.LogError("Invalid dice format: " + diceExpression);
+        return Enumerable.Empty<int>();
     }
 
-
+    private T LogError<T>(string message)
+    {
+        Debug.LogError(message);
+        return default;
+    }
 }

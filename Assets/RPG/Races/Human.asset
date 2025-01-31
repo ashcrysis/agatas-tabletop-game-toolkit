@@ -28,7 +28,7 @@ MonoBehaviour:
   - Name: Charisma
     Value: 1
   TrainedSkills:
-  - "Com\xE9dia"
-  - Atletismo
+  - Comedy
+  - Athletics
   TrainedAttributes:
-  - "Intelig\xEAncia"
+  - Intelligence

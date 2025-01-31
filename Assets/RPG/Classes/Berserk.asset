@@ -28,8 +28,8 @@ MonoBehaviour:
   - Name: Charisma
     Value: 0
   TrainedSkills:
-  - Atletismo
-  - Intimidar
-  - Vigor
+  - Athletics
+  - Intimidation
+  - Endurance
   TrainedAttributes:
   - Strength

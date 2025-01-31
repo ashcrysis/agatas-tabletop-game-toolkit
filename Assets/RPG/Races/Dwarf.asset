@@ -28,7 +28,7 @@ MonoBehaviour:
   - Name: Charisma
     Value: 0
   TrainedSkills:
-  - "Percep\xE7\xE3o"
-  - Atletismo
+  - Perception
+  - Athletics
   TrainedAttributes:
   - Strength
