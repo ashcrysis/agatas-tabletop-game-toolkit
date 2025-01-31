@@ -3,7 +3,7 @@
 ## Overview
 
 Welcome to my little project!
-This project is designed to simplify and speed up the development of rpg tabletop-like games in Unity. Whether you are building a digital version of a board game or creating your own tabletop experience, this toolkit provides some essential components and features.
+This project is designed to simplify and speed up the development of rpg tabletop-like games in Unity. Whether you are building a digital version of a board game or creating your own rpg experience, this toolkit provides some essential components and features.
 
 Currently, I am developing this toolkit for my own games, not using any rpg system exactly as reference, since i want it to be able to adapt to other genres, and it’s designed as a modular code-only project. This allows easy integration into other games just by importing the toolkit. I thought it would be a good idea to open-source it, so others can benefit and contribute as well.
 
