@@ -22,7 +22,7 @@ public class SkillTest : MonoBehaviour
 
        (int finalRoll, int total) result = diceRoller.RollSkillCheck(skillName, false, false);  
 
-        resultText.text = $"Test result: {result.total}";
+        resultText.text = $"Test result: {result.total} |";
         if (result.finalRoll == 20 || result.finalRoll == 1)
         {
             resultText.text += "Critical ";
