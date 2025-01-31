@@ -25,7 +25,7 @@ public class SkillTest : MonoBehaviour
         resultText.text = $"Test result: {result.total} |";
         if (result.finalRoll == 20 || result.finalRoll == 1)
         {
-            resultText.text += " Critical ";
+            resultText.text += " Critical";
         }
 
         if (result.total >= difficultyThreshold)
