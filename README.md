@@ -172,15 +172,88 @@ In this example, the `FireballTechnique` extends `Technique` and overrides `UseS
 
 ---
 
-## Contributing
+## Contributing Guide
 
-This project is open-source, and contributions are welcome! Here’s how you can help:
+Thank you for your interest in contributing to **Agata's Tabletop Game Toolkit**! Contributions are always welcome, whether it's fixing bugs, adding new features, or improving documentation. Follow the steps below to get started.
 
-1. **Make Changes**: Create a new branch, make your changes, and commit them.
-2. **Push Your Changes**: Push your changes to your created branch.
-3. **Open a Pull Request**: Open a pull request to propose your changes.
+---
 
-I encourage you to submit bug fixes, improvements, and feature requests.
+## How to Contribute
+
+### 1. Fork the Repository
+Before making any changes, you need to create a fork of the repository:
+- Click the **Fork** button on the GitHub repository page.
+- This will create a copy of the repository under your GitHub account.
+
+### 2. Clone Your Fork
+Once you have forked the repository, clone it to your local machine:
+```bash
+ git clone https://github.com/your-username/agatas-tabletop-game-toolkit.git
+```
+Replace `your-username` with your actual GitHub username.
+
+Navigate to the project directory:
+```bash
+ cd agatas-tabletop-game-toolkit
+```
+
+### 3. Create a New Branch
+Before making changes, create a new branch for your work:
+```bash
+ git checkout -b feature-or-bugfix-name
+```
+Example:
+```bash
+ git checkout -b fix-dice-rolling-bug
+```
+
+### 4. Make Changes
+Make your modifications to the codebase. Be sure to follow the project’s coding style and guidelines.
+
+### 5. Commit Your Changes
+Once you have made your changes, commit them with a clear message:
+```bash
+ git add .
+ git commit -m "Fix dice rolling bug that caused incorrect results"
+```
+
+### 6. Push Your Changes
+Push your branch to your forked repository:
+```bash
+ git push origin feature-or-bugfix-name
+```
+
+### 7. Open a Pull Request (PR)
+Go to the **original repository** on GitHub and open a **Pull Request**:
+- Click on **New Pull Request**.
+- Select your fork and branch.
+- Provide a clear title and description for your PR.
+- Click **Create Pull Request**.
+
+
+
+## Contribution Guidelines
+
+### ✅ Do:
+- Keep your pull requests focused and concise.
+- Follow the existing coding style.
+- Provide clear commit messages.
+- Test your changes before submitting.
+- Add relevant documentation if introducing new features.
+
+### ❌ Don't:
+- Submit large, unrelated changes in a single PR.
+- Modify files unrelated to your change.
+- Use vague commit messages.
+
+
+
+## Reporting Issues
+If you find a bug or want to suggest an improvement, please open an issue:
+- Go to the **Issues** tab in the repository.
+- Click **New Issue**.
+- Provide a detailed description, including steps to reproduce (if applicable).
+
 
 ## License
 
@@ -195,3 +268,4 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ## Contact
 
 For any questions, feel free to reach out via email or open an issue on the repository.
+Happy coding, and thank you for contributing! 🚀
