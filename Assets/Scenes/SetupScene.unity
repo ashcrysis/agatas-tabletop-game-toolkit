@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2de4e550f43e10419cd7f72e71de80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Jorge
+  CharacterName: Agata
   CharacterClass: {fileID: 11400000, guid: 4bf307aaf840c07488435f9661b05b2c, type: 2}
   Race: {fileID: 11400000, guid: aa3ddabba76a28f4984a2e03073a6b9c, type: 2}
   Attributes: []
@@ -418,7 +418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -570.4, y: 290.08005}
+  m_AnchoredPosition: {x: -570.4, y: 316}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335692573
@@ -6172,7 +6172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6954a78323c6f084ebfeee36a5ab3c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillNameField: "Prestidigita\xE7\xE3o"
+  skillNameField: Sleight of Hand
   difficultyField: 15
   resultText: {fileID: 335692573}
 --- !u!1 &1102824716
@@ -6337,7 +6337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Teste de per\xEDcia: Atletismo!\nDT: 15 \nAtributo base : For\xE7a"
+  m_text: "Skill Check: Athletics!\nDT: 15 \nBase attribute : Strength"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7148,8 +7148,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Teste de per\xEDcia: Prestidigita\xE7\xE3o!\nDT: 15 \nAtributo base :
-    Destreza\n"
+  m_text: 'Skill Check: Dexterity!
+
+    DT: 15 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7375,7 +7376,7 @@ GameObject:
   - component: {fileID: 2055316991}
   - component: {fileID: 2055316990}
   m_Layer: 0
-  m_Name: Chest (1)
+  m_Name: Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7393,7 +7394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6954a78323c6f084ebfeee36a5ab3c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillNameField: Atletismo
+  skillNameField: Athletics
   difficultyField: 15
   resultText: {fileID: 992435593}
 --- !u!61 &2055316991

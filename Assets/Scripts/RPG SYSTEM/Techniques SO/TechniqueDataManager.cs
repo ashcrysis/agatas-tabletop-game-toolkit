@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class TechniqueDataManager : MonoBehaviour
             technique.lastUsedTime = -Mathf.Infinity; ;
         }
         
-        UnlockStartingTechniqueDatas();
+        StartCoroutine(delayedStartTechniques(1f));
     }
     void Update()
     {
@@ -28,7 +29,12 @@ public class TechniqueDataManager : MonoBehaviour
             UseFirstKnownTechnique();
         }
     }
-    void UnlockStartingTechniqueDatas()
+    IEnumerator delayedStartTechniques(float time)
+    {
+        yield return new WaitForSeconds(time);
+        UnlockStartingTechniques();
+    }
+    void UnlockStartingTechniques()
     {
         foreach (Technique TechniqueData in allTechniqueDatas)
         {

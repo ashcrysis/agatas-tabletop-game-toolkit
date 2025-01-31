@@ -15,6 +15,7 @@ MonoBehaviour:
   techniqueName: Super Fireball
   description: Fire ball
   techniqueType: 0
+  damageType: 0
   requiredLevel: 2
   manaCost: 15
   staminaCost: 0

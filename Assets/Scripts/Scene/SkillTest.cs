@@ -22,25 +22,22 @@ public class SkillTest : MonoBehaviour
 
        (int finalRoll, int total) result = diceRoller.RollSkillCheck(skillName, false, false);  
 
-        resultText.text = $"Resultado do Teste: {result.total}";
+        resultText.text = $"Test result: {result.total}";
+        if (result.finalRoll == 20 || result.finalRoll == 1)
+        {
+            resultText.text += "Critical ";
+        }
 
         if (result.total >= difficultyThreshold)
         {
-            resultText.text += "\nSucesso";
+            resultText.text += " Sucess";
         }
         else
         {
-            resultText.text += "\nFalha";
+            resultText.text += " Fail";
         }
 
-        if (result.finalRoll == 20)
-        {
-            resultText.text += " Crítico!";
-        }
-        if (result.finalRoll == 1)
-        {
-            resultText.text += " Crítica!";
-        }
+ 
     }
 
    

@@ -5,12 +5,9 @@
 Welcome to my little project!
 This project is designed to simplify and speed up the development of tabletop-like games in Unity. Whether you are building a digital version of a board game or creating your own tabletop experience, this toolkit provides some essential components and features.
 
-Currently, I am developing this toolkit for my own games, and it’s designed as a modular code-only project. This allows easy integration into other games just by importing the toolkit. I thought it would be a good idea to open-source it, so others can benefit and contribute as well.
+Currently, I am developing this toolkit for my own games, not using any rpg system exactly as reference, since i want it to be able to adapt to other genres, and it’s designed as a modular code-only project. This allows easy integration into other games just by importing the toolkit. I thought it would be a good idea to open-source it, so others can benefit and contribute as well.
 
 Feel free to contribute to the project by opening pull requests or reporting issues!
-
-
-
 
 ## Features
 
@@ -20,7 +17,6 @@ Feel free to contribute to the project by opening pull requests or reporting iss
 - **TechniqueData Management**: Manage the techniques available to the player, including unlocking new techniques, using them, and checking if new techniques can be learned based on the player's stats.
 
 ---
-
 
 ## Installation
 
@@ -50,7 +46,7 @@ The Dice Rolling System allows you to roll customizable dice types. Here's an ex
 ```csharp
 // Roll 2 6-sided dices
 DiceRoller diceRoller = new DiceRoller("2d6");
-var result = diceRoller.RollDice(); 
+var result = diceRoller.RollDice();
 Debug.Log("Dice rolled: " + result.total);
 ```
 
@@ -190,7 +186,11 @@ I encourage you to submit bug fixes, improvements, and feature requests.
 
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
 
----
+## Credits
+
+- Developed by: **[Agata Asher Martins](https://ashcrysis.itch.io/)**
+- Assets: Using **Elthen's** free asset packs to create the example scene.  
+  You can find them [here on itch.io](https://elthen.itch.io/).
 
 ## Contact
 
