@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TechniqueDataManager : MonoBehaviour
+public class TechniqueManager : MonoBehaviour
 {
     public List<Technique> knownTechniqueDatas = new List<Technique>();
     public List<Technique> allTechniqueDatas; 
     
     private PlayerCharacter playerStats;
-    private TechniqueDataManager techniqueManager;
+    private TechniqueManager techniqueManager;
 
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>();
-        techniqueManager = GetComponent<TechniqueDataManager>();
+        techniqueManager = GetComponent<TechniqueManager>();
         
         foreach  (var technique in knownTechniqueDatas)
         {

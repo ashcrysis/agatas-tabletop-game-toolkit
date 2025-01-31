@@ -114,16 +114,16 @@ The `Technique` class represents a skill or ability in the game that a player ca
 
 The `TechniqueData` class holds the static data for each technique. It is used as the template from which techniques are set up and executed in the game.
 
-#### **TechniqueDataManager Class**
+#### **Techniqueanager Class**
 
-The `TechniqueDataManager` class is responsible for managing the techniques available to the player, including unlocking new techniques, using them, and checking if new techniques can be learned.
+The `TechniqueManager` class is responsible for managing the techniques available to the player, including unlocking new techniques, using them, and checking if new techniques can be learned.
 
 ##### **Properties**
 
 - `knownTechniqueDatas` (List<Technique>): A list of techniques that the player has already learned.
 - `allTechniqueDatas` (List<Technique>): A list of all available techniques in the game.
 - `playerStats` (PlayerCharacter): The player's character stats.
-- `techniqueManager` (TechniqueDataManager): A reference to the `TechniqueDataManager` component.
+- `techniqueManager` (TechniqueManager): A reference to the `TechniqueManager` component.
 
 ##### **Methods**
 
