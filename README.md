@@ -177,7 +177,7 @@ In this example, the `FireballTechnique` extends `Technique` and overrides `UseS
 This project is open-source, and contributions are welcome! Here’s how you can help:
 
 1. **Make Changes**: Create a new branch, make your changes, and commit them.
-2. **Push Your Changes**: Push your changes back to your forked repository.
+2. **Push Your Changes**: Push your changes to your created branch.
 3. **Open a Pull Request**: Open a pull request to propose your changes.
 
 I encourage you to submit bug fixes, improvements, and feature requests.
