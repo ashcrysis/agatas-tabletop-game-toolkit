@@ -6,7 +6,6 @@ public static class SkillsDatabase
     {
         List<Skill> skills = new List<Skill>();
 
-        // Main Skills
         skills.Add(new Skill("Acrobatics", false, attributes.Find(a => a.Name == "Dexterity"))); // Acrobatics (Dex; penalty for armor)
         skills.Add(new Skill("Animal Handling", false, attributes.Find(a => a.Name == "Charisma"))); // Animal Handling (Cha)
         skills.Add(new Skill("Athletics", false, attributes.Find(a => a.Name == "Strength"))); // Athletics (Str; penalty for armor)
